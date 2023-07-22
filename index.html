@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>To-Do List</h1>
+    <div class="container">
+        <form id="taskForm">
+            <label for="taskTitle">Task Title:</label>
+            <input type="text" id="taskTitle" >
+            <label for="category">Category:</label>
+            <input type="text" id="category" >
+            <label for="tags">Tags:</label>
+            <input type="text" id="tags">
+            <label for="dueDate">Due Date:</label>
+            <input type="date" id="dueDate" >
+            
+<label for="reminder">Reminder:</label>
+<input type="datetime-local" id="reminder">
+
+            <label for="priority">Priority:</label>
+            <select id="priority">
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+            </select>
+            <button class="add-task-btn">Add Task</button>
+
+<!-- Apply Filter Button -->
+        </form>
+        
+        <form id="filterForm">
+            <h2>Filters:</h2>
+            <label for="dueDateFilter">Due Date:</label>
+            <input type="date" id="dueDateFilter">
+            <label for="categoryFilter">Category:</label>
+            <input placeholder="add category..." type="text" id="categoryFilter">
+            <label for="priorityFilter">Priority:</label>
+            <select id="priorityFilter">
+                <option value=""></option>
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+            </select>
+            <button class="apply-filter-btn">Apply Filter</button>
+        </form>
+
+        <div class="sort-buttons">
+            <h2>Sort By:</h2>
+            <button class="sort-btn" data-sort-option="category">Category</button>
+            <button class="sort-btn" data-sort-option="priority">Priority</button>
+            <button class="sort-btn" data-sort-option="dueDate">Due Date</button>
+        </div>
+
+
+
+
+        <form id="searchForm">
+            <h2>Search Tasks:</h2>
+            <label for="searchQuery">Search Query:</label>
+            <input placeholder="Search task" type="text" id="searchQuery">
+            <label for="searchType">Search Type:</label>
+            <select id="searchType">
+                <option value="exactTodo">Exact Todo</option>
+                <option value="subTasks">Sub-tasks</option>
+                <option value="similarWords">Similar Words</option>
+                <option value="partialSearch">Partial Search</option>
+                <option value="tags">Tags</option>
+            </select>
+            <button type="submit">Search</button>
+        </form>      
+        <div id="backlogsSection">
+            <h2>Backlogs:</h2>
+            <ul id="backlogsList"></ul>
+        </div>
+
+        <!-- Activity Logs Section -->
+        <div id="activityLogsSection">
+            <h2>Activity Logs:</h2>
+            <ul id="activityLogsList"></ul>
+        </div>
+        <div>
+        <h2>List</h2>
+        <ul id="taskList"></ul>
+    </div>
+      
+
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
