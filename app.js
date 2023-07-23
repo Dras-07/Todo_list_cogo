@@ -280,6 +280,7 @@ function renderFilteredTasks(filteredTasks) {
             const subtaskList = document.createElement('ul');
             task.subtasks.forEach(subtask => {
                 const subtaskLi = document.createElement('li');
+                subtaskLi.id=`subtask-li-1`;
                 subtaskLi.textContent = subtask;
                 subtaskList.appendChild(subtaskLi);
             });

@@ -2,7 +2,7 @@
 :root {
     --bg-color: #2D4739;
     --primary-color: #09814A;
-    --secondary-color: #E5C687;
+    --secondary-color: black;
     --input-color: #121619;
   }
   
@@ -108,7 +108,7 @@
     color: #fff;
     cursor: pointer;
   }
-  
+
   
   #activityLog {
     margin-top: 20px;
@@ -132,6 +132,7 @@
     padding: 8px;
     border-radius: 4px;
   }
+  
   
  
   #taskList li .task-details {
@@ -169,6 +170,9 @@
     background-color: #495057;
   }
   
+
+
+
 
   #activityLogsList {
     margin-bottom: 8px;
@@ -343,7 +347,7 @@
   
 
   .add-task-btn {
-    background-color: var(--primary-color);
+    background-color: #09814A;
     color: #fff;
     border: none;
     padding: 8px 16px;
@@ -364,8 +368,8 @@
   }
   
 
-  .add-subtask-btn {
-    background-color: var(--secondary-color);
+  .add-subtask-btn-1 {
+    background-color: black;
     color: #fff;
     border: none;
     padding: 8px 16px;
@@ -390,7 +394,7 @@
   }
   
 
-.add-subtask-btn {
+.add-subtask-btn-1 {
     background-color: var(--secondary-color);
     color: #fff;
     border: none;
@@ -435,4 +439,17 @@
     margin-bottom: 4px;
     padding: 4px;
   }
-  
+  #taskForm button{
+    background-color: #09814A;
+  }
+  #subtask-btn-1{
+    background-color: #09814A;
+  }
+  #filterForm button {
+    background-color: #09814A;
+  }
+
+#taskList li ul li{
+  background-color: darkgreen;
+  width: 300px;
+}
