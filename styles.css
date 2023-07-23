@@ -1,4 +1,4 @@
-/* Variables */
+
 :root {
     --bg-color: #2D4739;
     --primary-color: #09814A;
@@ -6,12 +6,12 @@
     --input-color: #121619;
   }
   
-  /* Global Styles */
+ 
   body {
     font-family: Arial, sans-serif;
     margin: 20px;
     background-color: var(--bg-color);
-    color: #fff; /* Set text color to white for better contrast */
+    color: #fff; 
   }
   
   h1 {
@@ -23,7 +23,7 @@
     margin-top: 20px;
   }
   
-  /* Form Styles */
+
   form {
     margin-bottom: 10px;
   }
@@ -39,7 +39,7 @@
     font-weight: bold;
   }
   
-  /* List Styles */
+  
   ul {
     list-style-type: none;
     padding: 0;
@@ -63,7 +63,7 @@
     margin-top: 10px;
   }
   
-  /* Button Styles */
+
   button {
     cursor: pointer;
     padding: 5px 10px;
@@ -93,7 +93,7 @@
     background-color: #17a2b8;
   }
   
-  /* Sort Buttons */
+
   .sort-buttons {
     margin-top: 20px;
     text-align: center;
@@ -109,7 +109,7 @@
     cursor: pointer;
   }
   
-  /* Activity Log Styles */
+  
   #activityLog {
     margin-top: 20px;
     border: 1px solid #ddd;
@@ -121,31 +121,31 @@
     font-size: 14px;
   }
   
-  /* Task List Styles */
+
   #taskList li {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #09814A; /* Background color for the todo list items */
-    color: #fff; /* Text color for the todo list items */
+    background-color: #09814A; 
+    color: #fff; 
     margin-bottom: 8px;
     padding: 8px;
     border-radius: 4px;
   }
   
-  /* Task Details Container */
+ 
   #taskList li .task-details {
     width: 100%;
     display: flex;
     justify-content: space-between;
   }
   
-  /* Details Styles (category, tags, due date, etc.) */
+
   #taskList li .task-details span {
     margin-right: 12px;
   }
   
-  /* Task Actions Container (Buttons) */
+ 
   #taskList li .task-actions {
     display: flex;
     align-items: center;
@@ -153,8 +153,7 @@
     margin-bottom: 10px;
   }
 
-  
-  /* Task Action Buttons */
+
   #taskList li .task-actions button {
     color: #fff;
     background-color: var(--input-color);
@@ -165,12 +164,12 @@
     margin-left: 20px;
   }
   
-  /* Task Action Buttons on Hover */
+
   #taskList li .task-actions button:hover {
     background-color: #495057;
   }
   
-  /* Activity Log List */
+
   #activityLogsList {
     margin-bottom: 8px;
     padding: 8px;
@@ -178,7 +177,7 @@
     list-style-type: none;
   }
   
-  /* Activity Log Item */
+
   #activityLogsList li {
     color: #fff;
     margin-bottom: 8px;
@@ -187,7 +186,7 @@
     border-radius: 4px;
   }
   
-  /* Backlog List */
+ 
   #backlogsList {
     background-color: var(--bg-color);
     margin-bottom: 8px;
@@ -196,7 +195,7 @@
     list-style-type: none;
   }
   
-  /* Backlog Item */
+
   #backlogsList li {
     color: #fff;
     margin-bottom: 8px;
@@ -205,14 +204,14 @@
     border-radius: 4px;
   }
   
-  /* Filter Section */
+ 
   #filterForm {
     background-color: var(--bg-color);
     padding: 10px;
     border-radius: 4px;
   }
   
-  /* Filter Buttons */
+
   #filterForm label,
   #filterForm input,
   #filterForm select,
@@ -225,13 +224,12 @@
     border-radius: 4px;
     cursor: pointer;
   }
-  
-  /* Filter Buttons on Hover */
+
   #filterForm button:hover {
     background-color: #495057;
   }
   
-  /* Sort and Search Section */
+  
   .sort-search-section {
     background-color: var(--bg-color);
     padding: 10px;
@@ -241,7 +239,7 @@
     align-items: center;
   }
   
-  /* Sort and Search Buttons */
+
   .sort-search-section label,
   .sort-search-section input,
   .sort-search-section select,
@@ -255,12 +253,12 @@
     cursor: pointer;
   }
   
-  /* Sort and Search Buttons on Hover */
+ 
   .sort-search-section button:hover {
     background-color: #495057;
   }
   
-  /* Search Section */
+ 
   #searchForm {
     background-color: var(--bg-color);
     padding: 10px;
@@ -269,7 +267,7 @@
     align-items: center;
   }
   
-  /* Search Input Field */
+
   #searchForm input[type="text"] {
     color: #fff;
     background-color: var(--input-color);
@@ -280,7 +278,7 @@
     width: 200px;
   }
   
-  /* Search Button */
+
   #searchForm button {
     color: #fff;
     background-color: var(--primary-color);
@@ -290,19 +288,19 @@
     cursor: pointer;
   }
   
-  /* Placeholder Text for Search Input Field */
+
   #searchForm input[type="text"]::placeholder {
     color: #fff;
   }
   
-  /* Task Form */
+
   #taskForm {
     background-color: var(--bg-color);
     padding: 10px;
     border-radius: 4px;
   }
   
-  /* Task Form Labels, Inputs, Select, and Buttons */
+
   #taskForm label,
   #taskForm input,
   #taskForm select,
@@ -316,20 +314,20 @@
     cursor: pointer;
   }
   
-  /* Placeholder Text for Task Form Input Fields and Select */
+
   #taskForm input[type="text"]::placeholder,
   #taskForm select::placeholder {
     color: #fff;
   }
   
-  /* Use grid layout for a more organized layout in the task form */
+ 
   #taskForm {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 10px;
   }
   
-  /* Improve responsiveness of the task form */
+
   @media (max-width: 768px) {
     #taskForm {
       margin-top: 10px;
@@ -427,13 +425,13 @@
   .subtask-list {
     margin-top: 8px;
     padding: 8px;
-    border-bottom: 1px solid #000; /* Black border bottom for the subtask list */
-    background-color: #2D4739; /* Background color for the subtask list */
+    border-bottom: 1px solid #000; 
+    background-color: #2D4739;
   }
   
-  /* Apply styles to the subtask list items (li elements) */
+
   .subtask-list li {
-    color: #fff; /* Text color for the subtask list items */
+    color: #fff; 
     margin-bottom: 4px;
     padding: 4px;
   }

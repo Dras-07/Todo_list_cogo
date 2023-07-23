@@ -6,16 +6,15 @@ const viewBacklogsButton = document.getElementById('viewBacklogsButton');
 const viewActivityLogsButton = document.getElementById('viewActivityLogsButton');
 const activityLogsList = document.getElementById('activityLogsList');
 
-// Array to store tasks
+
 let tasks = [];
 let activityLogs = [];
 
-// Function to render the tasks
 function renderTasks() {
     taskList.innerHTML = '';
     tasks.forEach((task, index) => {
         const li = document.createElement('li');
-        // Display task details and buttons for editing/deleting
+       
         li.innerHTML = `
         <div class="task-details">
         <span><strong>Task:</strong> ${task.title}</span>
@@ -33,7 +32,7 @@ function renderTasks() {
     
         `;
 
-        // Render subtasks
+
         if (task.subtasks && task.subtasks.length > 0) {
             const subtaskList = document.createElement('ul');
             task.subtasks.forEach(subtask => {
@@ -44,7 +43,7 @@ function renderTasks() {
             li.appendChild(subtaskList);
         }
 
-        // Input fields and button for editing
+        
         const editFields = document.createElement('div');
         editFields.classList.add('edit-fields');
         editFields.innerHTML = `
@@ -106,7 +105,7 @@ function renderTasks() {
 }
 
 
-// Function to render pending and missed tasks (backlogs)
+
 function renderBacklogs() {
     const now = new Date();
     const backlogs = tasks.filter(task => task.done === false && new Date(task.dueDate) < now);
@@ -127,7 +126,7 @@ function renderBacklogs() {
     }
 }
 
-// Function to render activity logs
+
 function renderActivityLogs() {
     activityLogsList.innerHTML = '';
 
@@ -144,7 +143,7 @@ function renderActivityLogs() {
     }
 }
 
-// Function to log activity
+
 function logActivity(activity) {
     const now = new Date();
     const log = `[${now.toLocaleString()}] ${activity}`;
@@ -152,7 +151,7 @@ function logActivity(activity) {
     renderActivityLogs();
 }
 
-// Function to add a new task
+
 function addTask(title, category, tags, dueDate, priority, reminder, subtasks) {
     const reminderTime = reminder ? new Date(reminder) : null;
     const newTask = {
@@ -174,7 +173,7 @@ function addTask(title, category, tags, dueDate, priority, reminder, subtasks) {
 }
 
 
-// Function to delete a task
+
 function deleteTask(index) {
     const deletedTask = tasks[index];
     removeTaskAndUpdateStorage(index);
@@ -182,13 +181,13 @@ function deleteTask(index) {
     renderTasks();
     
 }
-// Function to edit a task
+
 function editTask(index) {
     tasks[index].editing = true;
     renderTasks();
 }
 
-// Function to save changes made during editing
+
 function saveTaskChanges(index) {
     const li = taskList.children[index];
     const title = li.querySelector('.edit-title').value;
@@ -207,19 +206,18 @@ function saveTaskChanges(index) {
     renderTasks();
 }
 
-// Function to cancel editing
+
 function cancelEdit(index) {
     tasks[index].editing = false;
     renderTasks();
 }
 
-// Function to toggle task status (Done/Undone)
+
 function toggleTaskStatus(index) {
     tasks[index].done = !tasks[index].done;
     renderTasks();
 }
 
-// Function to add a subtask to a main task
 function addSubtask(index, subtask) {
     tasks[index].subtasks.push(subtask);
     logActivity(`Subtask "${subtask}" was added to task with ID ${index}.`);
@@ -227,7 +225,7 @@ function addSubtask(index, subtask) {
 }
 
 
-// Event listener for adding a subtask
+
 function handleAddSubtask(index) {
     const subtaskInput = document.getElementById(`subtaskInput-${index}`);
     const subtask = subtaskInput.value.trim();
@@ -237,30 +235,30 @@ function handleAddSubtask(index) {
     }
 }
 
-// Function to filter tasks based on due date
+
 function filterByDueDate(dueDate) {
     const filteredTasks = tasks.filter(task => task.dueDate === dueDate);
     renderFilteredTasks(filteredTasks);
 }
 
-// Function to filter tasks based on category
+
 function filterByCategory(category) {
     const filteredTasks = tasks.filter(task => task.category.toLowerCase() === category.toLowerCase());
     renderFilteredTasks(filteredTasks);
 }
 
-// Function to filter tasks based on priority
+
 function filterByPriority(priority) {
     const filteredTasks = tasks.filter(task => task.priority === priority);
     renderFilteredTasks(filteredTasks);
 }
 
-// Function to render filtered tasks
+
 function renderFilteredTasks(filteredTasks) {
     taskList.innerHTML = '';
     filteredTasks.forEach((task, index) => {
         const li = document.createElement('li');
-        // Display task details and buttons for editing/deleting
+      
         li.innerHTML = `
         <div class="task-details">
         <span><strong>Task:</strong> ${task.title}</span>
@@ -278,7 +276,6 @@ function renderFilteredTasks(filteredTasks) {
     
         `;
 
-        // Render subtasks
         if (task.subtasks && task.subtasks.length > 0) {
             const subtaskList = document.createElement('ul');
             task.subtasks.forEach(subtask => {
@@ -289,7 +286,7 @@ function renderFilteredTasks(filteredTasks) {
             li.appendChild(subtaskList);
         }
 
-        // Input field and button for adding subtasks
+        
         const subtaskInput = document.createElement('input');
         subtaskInput.type = 'text';
         subtaskInput.placeholder = 'Add Subtask';
@@ -308,7 +305,6 @@ function renderFilteredTasks(filteredTasks) {
     });
 }
 
-// Function to sort tasks based on selected option
 function sortTasks(option) {
     switch (option) {
         case 'category':
@@ -324,7 +320,6 @@ function sortTasks(option) {
     renderTasks();
 }
 
-// Function to search tasks based on search query
 function searchTasks(query, searchType) {
     const searchResults = tasks.filter(task => {
         const lowerCaseTitle = task.title.toLowerCase();
@@ -350,7 +345,6 @@ function searchTasks(query, searchType) {
     renderFilteredTasks(searchResults);
 }
 
-// Function to set reminders
 function setReminders() {
     tasks.forEach(task => {
         const { title, reminderTime } = task;
@@ -369,7 +363,7 @@ function saveToLocalStorage() {
     localStorage.setItem('activityLogs', JSON.stringify(activityLogs));
   }
   
-  // Function to load tasks and activity logs from localStorage
+
   function loadFromLocalStorage() {
     const storedTasks = localStorage.getItem('tasks');
     const storedActivityLogs = localStorage.getItem('activityLogs');
@@ -395,12 +389,11 @@ function saveToLocalStorage() {
   
   
   
-  // Call initApp to initialize the application when the page loads
+ 
   initApp();
   
   
 
-// Event listener for the form submission
 
 taskForm.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -412,10 +405,10 @@ taskForm.addEventListener('submit', (e) => {
     const reminder = document.getElementById('reminder').value;
     addTask(taskTitle, category, tags, dueDate, priority, reminder);
     taskForm.reset();
-    saveToLocalStorage(); // Save the updated tasks to localStorage
+    saveToLocalStorage(); 
   });
 
-// Event listener for the filter form submission
+
 
 filterForm.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -434,16 +427,16 @@ filterForm.addEventListener('submit', (e) => {
     }
   });
   
-// Event listener for the sort button clicks
+
 document.querySelectorAll('.sort-btn').forEach(btn => {
     btn.addEventListener('click', (e) => {
       const option = e.target.dataset.sortOption;
       sortTasks(option);
-      saveToLocalStorage(); // Save the sorted tasks to localStorage
+      saveToLocalStorage(); 
     });
   });
   
-// Event listener for the search form submission
+
 searchForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const searchQuery = document.getElementById('searchQuery').value;
@@ -461,19 +454,18 @@ searchForm.addEventListener('submit', (e) => {
     renderBacklogs();
   });
   
-  // Event listener for View Activity Logs button
+
   viewActivityLogsButton.addEventListener('click', () => {
     renderActivityLogs();
   });
   
-  // Call saveToLocalStorage whenever tasks or activityLogs change
+ 
   window.addEventListener('beforeunload', () => {
     saveToLocalStorage();
   });
   
 
-// Initial rendering of tasks
+
 renderTasks();
 
-// Set initial reminders
 setReminders();
