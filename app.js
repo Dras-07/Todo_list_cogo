@@ -204,6 +204,7 @@ function saveTaskChanges(index) {
     tasks[index].editing = false;
 
     renderTasks();
+    saveToLocalStorage();
 }
 
 
@@ -222,6 +223,7 @@ function addSubtask(index, subtask) {
     tasks[index].subtasks.push(subtask);
     logActivity(`Subtask "${subtask}" was added to task with ID ${index}.`);
     renderTasks();
+    saveToLocalStorage(); 
 }
 
 
